@@ -1,0 +1,31 @@
+Bootstrap: docker
+From: nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+
+%setup
+
+%files
+
+%environment
+
+%post
+
+export DEBIAN_FRONTEND=noninteractive
+apt update && apt -y install git wget nano python3 python3-pip python3-opencv htop curl
+
+python3 -m pip install tqdm matplotlib mlflow pandas scikit-learn==0.23.1 scikit-image
+python3 -m pip install seaborn scipy datetime numpy==1.19.1
+python3 -m pip install torch==1.6.0 msgpack k3d
+
+%environment
+export LC_ALL=C
+
+%runscript
+
+%startscript
+
+%test
+
+%labels
+
+%help
+
