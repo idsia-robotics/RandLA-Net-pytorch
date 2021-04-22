@@ -81,6 +81,6 @@ python3 test.py
    - [paper](https://arxiv.org/abs/2012.12996)
    - [dataset](https://zenodo.org/record/4390295) 
 
-### [RandLA-Net: Efficient Semantic Segmentation of Large-Scale Point Clouds]
+### RandLA-Net: Efficient Semantic Segmentation of Large-Scale Point Clouds
    - [paper](http://arxiv.org/abs/1911.11236)
    - [repo](https://github.com/QingyongHu/RandLA-Net) with the original Tensorflow 1 implementation
