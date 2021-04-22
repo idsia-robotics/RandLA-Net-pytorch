@@ -1,4 +1,6 @@
 # RandLA-Net-pytorch
+[![Resuts example viz](https://github.com/idsia-robotics/RandLA-Net-pytorch/blob/main/RandLA-Net-pytorch_Visualization.gif)](https://youtu.be/qE3vvh8aY00)
+
 Our PyTorch implementation of [RandLA-Net](https://github.com/QingyongHu/RandLA-Net)
 
 We tried to stay as close as possible to the original Tensorflow model implementation.
