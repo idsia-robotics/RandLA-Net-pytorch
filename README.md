@@ -14,7 +14,7 @@ This folder must contain a pickle file (**pc.pickle**) for the pointcloud itself
 Finally, metadata folder must contain a file called **metadata.pickle**, which contains a python dictionary like this:
   
 	{
-		"pc_id": int id for the pointloud, 
+	    "pc_id": int id for the pointloud, 
 	    "labels": list of floats representing the classes available in the pointcloud, 
 	    "name": string name for the pointcloud (can be None)
 	}
