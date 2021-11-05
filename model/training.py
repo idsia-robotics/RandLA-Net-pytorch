@@ -81,7 +81,7 @@ def train_model(model, max_epochs, train_loader, test_loader, device,
         train_loss, train_acc = train_epoch(device, loss, model,
                                             optimizer, train_loader, n_layers,
                                             class_weight)
-        val_acc, val_iou, val_mean_iou, val_aucs, val_mean_auc = validation(device, model, test_loader,
+        val_acc, val_iou, val_mean_iou, val_aucs, val_mean_auc = validation(device, model, test_loader, n_layers,
                                                                             n_classes, scheduler)
 
         if val_mean_iou > np.max(mean_iou_list):
@@ -201,7 +201,7 @@ def train_epoch(device, loss_function, model, optimizer,
     return np.mean(train_losses), np.mean(train_accs)
 
 
-def validation(device, model, test_loader, n_classes, scheduler):
+def validation(device, model, test_loader, n_layers, n_classes, scheduler):
     """
         Given a model a dataset and a set of parameters, the function returns
         all the metrics relative to the validation set
@@ -229,7 +229,7 @@ def validation(device, model, test_loader, n_classes, scheduler):
     auc_every = len(test_loader)//5
     with torch.no_grad():
         for cnt, input_list in enumerate(test_logger):
-            inputs = unpack_input(input_list, n_classes, device)
+            inputs = unpack_input(input_list, n_layers, device)
             outputs = model(inputs)
             logits = F.log_softmax(outputs, dim=-1)
             pred = logits.argmax(1).cpu().numpy()
